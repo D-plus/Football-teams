@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
+@import 'assets/scss/colors';
+
+$app-font: 'Sulphur Point', sans-serif;
+
+body {
+  font-family: $app-font;
+  background-color: $color-light-green;
+  margin: 0;
+}
+
+.app-wrapper {
+  margin: 0 45px;
+}
+
+.teams-page {
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__card.MuiPaper-root {
+    background-color: $color-light-gray;
+    margin: 0 30px 20px 0;
+  }
+
+  .MuiAvatar-img {
+    object-fit: contain;
+  }
+
+  .MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .MuiButton-text {
+    padding: 0 5px;
+  }
+
+  .MuiButton-label a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.teams-page,
+.team-page {
+  &__header h3 {
+    margin-left: 22px;
+    font-size: 22px;
+  }
+}
+
+.table-item {
+  cursor: pointer;
+  transition: background-color .5s ease .01s;
+  user-select: none;
+
+  &:hover {
+    background-color: $color-light-gray;
+  }
+
+  display: flex;
+  border-bottom: 1px $color-black dashed;
+  padding: 8px 0;
+  flex-direction: row;
+  outline: none;
+
+  &__data {
+    width: 160px;
+    display: block;
+    font-size: 18px;
+  }
+}
+
+.table-title {
+  width: 160px;
+  user-select: none;
+
+  &_sortable {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__label {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 5px;
+  }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    margin-top: 10px;
+  }
+
+  &__header h2 {
+    border-bottom: 1px solid $color-black;
+  }
+
+  &__header-filter {
+    margin-bottom: 15px;
+  }
+
+  &__header-filter input {
+    width: 200px;
+  }
+
+  &__header-titles {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__item:first-child {
+    border-top: 1px $color-black dashed;
+  }
+
+  &__no-content-message {
+    margin: auto;
+  }
+
+  &__main {
+    min-height: 350px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .MuiInputBase-input {
+    padding: 10px;
+  }
+
+  .MuiInputLabel-outlined {
+    transform: translate(14px, 12px) scale(1);
+  }
+
+  .MuiFormControl-root {
+    min-width: 120px;
+  }
+}
+
+.detailed-info {
+  display: flex;
+  align-items: center;
+
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 35px;
+    min-width: 190px;
+    min-height: 190px;
+  }
+
+  &__logo {
+    max-height: 185px;
+  }
+
+  &__head-title {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__title:first-child {
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    margin-right: 2px;
+  }
+
+  &__field {
+    display: inline-flex;
+    font-size: 18px;
+    flex-direction: column;
+    margin-right: 28px;
+  }
+
+  &__field:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  &__definition {
+    font-weight: 600;
+  }
+
+  &__definition-color {
+    width: 40px;
+    height: 18px;
+  }
+}
+
+.team-page {
+  .add-score-dialog-wrapper {
+    margin-bottom: 5px;
+  }
+
+  .team-page__team-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .team-page__tables-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+
+    @media only screen and (min-width: 1600px) {
+      justify-content: start;
+
+      .table:first-child {
+        margin-right: 100px;
+      }
+    }
+  }
+}
+
+.add-score-dialog {
+  .MuiDialogContent-root {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 1000px;
+  }
+
+  .MuiFormControl-root {
+    width: 280px;
+    margin-bottom: 22px;
+  }
+
+  &__date-picker-label {
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 0;
+    font-family: "Sulphur Point", serif;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__date-picker-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 242px;
+    margin-bottom: 22px;
+  }
+
+
+  .MuiDialog-paperWidthSm {
+    max-height: 650px;
+  }
+}
+
+.add-score-dialog-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .MuiButtonBase-root.MuiButton-root {
+    width: 200px;
+  }
+}
+
+.react-datepicker-wrapper {
+  max-width: 280px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    font-family: $app-font;
+    font-size: 16px;
+  }
+}
+
+.react-datepicker__input-container {
+  input {
+    padding: 6px 0;
+    width: 80px;
+    text-align: center;
+  }
+}
+
+.input-with-debounce {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__progress {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+
+  .MuiFormControl-root {
+    margin-right: 25px;
+  }
+}
+
+.input-with-debounce__progress:after {
+  content: " ";
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 6px solid;
+  border-color: $color-light-green transparent $color-light-green transparent;
+  animation: input-with-debounce__progress 1.2s linear infinite;
+}
+
+@keyframes input-with-debounce__progress {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.input-with-debounce__success {
+  path {
+    fill: $color-light-green;
+  }
+}
+
+.input-with-debounce__success.svg-inline--fa.fa-w-16 {
+  width: 28px;
+  height: 28px;
+}
+
+.player-info-dialog {
+  .MuiDialog-paperFullScreen {
+    background-color: $color-light-gray;
+  }
+
+  .MuiButton-label {
+    color: $color-white;
+  }
+}

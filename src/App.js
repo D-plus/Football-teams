@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { toast } from 'react-toastify';
+import './App.scss';
+import 'react-toastify/dist/ReactToastify.css';
+import WaitingComponent from './shared/hocs/WaitingComponent/WaitingComponent';
+
+toast.configure();
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: '"Sulphur Point", serif',
+  },
+});
+
+const TeamPage = React.lazy(() => import('./Team/TeamPage'));
+const TeamsPage = React.lazy(() => import('./Teams/TeamsPage'));
+
+const App = () => (
+  <div className="app-wrapper">
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/team/:id" component={WaitingComponent(TeamPage)} />
+          <Route path="/" exact component={WaitingComponent(TeamsPage)} />
+          <Redirect to="/" />
+        </Switch>
+      </BrowserRouter>
+    </MuiThemeProvider>
+  </div>
+);
 
 export default App;
